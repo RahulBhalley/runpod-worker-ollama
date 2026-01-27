@@ -38,7 +38,7 @@ else
 fi
 
 # --- START MAIN HANDLER ---
-echo "Starting handler..."
-python -u handler.py "$1"
+echo "Starting serverless handler..."
+python -u serverless.py "$1"
 
 wait
