@@ -19,19 +19,10 @@ async def handler(job: any):
     async for batch in job:
         yield batch
 
-# Original code from vllm runpod_wrapper.py
-#async def handler(job):
-#    job_input = JobInput(job["input"])
-#    engine = OpenAIvLLMEngine if job_input.openai_route else vllm_engine
-#    results_generator = engine.generate(job_input)
-#    async for batch in results_generator:
-#        yield batch
-
-if __name__ == "__main__":
-    runpod.serverless.start(
-        {
-            "handler": handler,
-            "concurrency_modifier": lambda x: max_concurrency,
-            "return_aggregate_stream": True,
-        }
-    )
+runpod.serverless.start(
+    {
+        "handler": handler,
+        "concurrency_modifier": lambda x: max_concurrency,
+        "return_aggregate_stream": True,
+    }
+)
