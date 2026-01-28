@@ -42,7 +42,6 @@ For more details, see the [license](https://creativecommons.org/licenses/by/4.0/
 Below is a **clean, minimal command sequence** extracted from your terminal session, suitable for a README.
 Noise, retries, and logs are intentionally removed.
 
----
 
 ## 1. Clone the repository
 
@@ -51,8 +50,6 @@ gh repo clone RahulBhalley/runpod-worker-ollama
 cd runpod-worker-ollama
 ```
 
----
-
 ## 2. Build Docker image (Apple Silicon compatible)
 
 > **Important:** Force `linux/amd64` on Apple Silicon (M1/M2/M3)
@@ -60,8 +57,6 @@ cd runpod-worker-ollama
 ```bash
 docker build -t ollama-runpod-test --platform linux/amd64 .
 ```
-
----
 
 ## 3. Run container (example: `llama3`)
 
@@ -75,8 +70,6 @@ docker run --rm \
   ollama-runpod-test
 ```
 
----
-
 ## 4. Run container (example: `gemma3:4b`)
 
 ```bash
@@ -89,8 +82,6 @@ docker run --rm \
   ollama-runpod-test
 ```
 
----
-
 ## 5. Fix “port already allocated” (if needed)
 
 ```bash
@@ -98,16 +89,12 @@ sudo lsof -i :8080
 sudo kill -9 <PID>
 ```
 
----
-
 ## 6. Optional: Docker cleanup (disk / build cache issues)
 
 ```bash
 docker system prune -a
 docker volume prune
 ```
-
----
 
 ## 7. Health & API endpoints
 
@@ -118,8 +105,6 @@ docker volume prune
   ```bash
   curl http://localhost:11434/api/tags
   ```
-
----
 
 ## Notes ⚠️
 
